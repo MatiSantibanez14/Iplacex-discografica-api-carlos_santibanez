@@ -1,0 +1,32 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.3.4'
+    id 'io.spring.dependency-management' version '1.1.5'
+}
+
+group = 'cl.iplacex'
+version = '1'    // requisito del taller: establecer versión en 1
+sourceCompatibility = '17'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Dependencias principales
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
+
+    // Dependencias para pruebas
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
+
+// 🔹 Esto le dice al plugin de Spring Boot cuál es la clase main
+springBoot {
+    mainClass = 'cl.iplacex.discografia.DiscografiaApplication'
+}
+
